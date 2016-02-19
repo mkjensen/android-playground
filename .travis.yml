@@ -17,17 +17,17 @@ android:
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-tv-21
 
+before_install:
+  - pip install --user codecov
+
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi android-tv/armeabi-v7a
   - emulator -avd test -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
-before_install:
-- pip install --user codecov
-
 script:
-   - ./gradlew assemble connectedAndroidTest
+   - ./gradlew assemble connectedCheck
 
 after_success:
   - codecov
