@@ -3,6 +3,8 @@ package com.github.mkjensen.androidplayground;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.SmallTest;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,5 +15,6 @@ public class AndroidUtilsTest {
   @Test
   public void test_shouldBeCalledByAndroidTest() {
     Utils.shouldBeCalledByAndroidTest();
+    Assert.assertEquals(42, 42);
   }
 }
