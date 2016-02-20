@@ -17,7 +17,9 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.mkjensen.androidplayground">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.github.mkjensen.androidplayground"
+    tools:ignore="MissingLeanbackLauncher">
 
     <uses-feature
         android:name="android.software.leanback"
