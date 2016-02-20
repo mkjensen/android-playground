@@ -6,8 +6,9 @@ jdk:
   - oraclejdk8
 
 env:
-  - JPM_HOME=${HOME}/jpm
-  - JPM_BIN=${JPM_HOME}/bin
+  global:
+    - JPM_HOME=${HOME}/jpm
+    - JPM_BIN=${JPM_HOME}/bin
 
 android:
   components:
