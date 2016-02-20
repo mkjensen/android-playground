@@ -19,7 +19,7 @@ test:
         parallel: true
     - circle-android wait-for-boot
   override:
-    - ./gradlew assemble check connectedCheck
+    - ./gradlew assemble check connectedCheck -PdisablePreDex
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/build/test-results/.*xml\|.*/build/outputs/androidTest-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
