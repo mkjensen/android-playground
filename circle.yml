@@ -15,9 +15,10 @@ dependencies:
 
 test:
   pre:
-    - ./gradlew clean assemble ${GRADLE_ARGUMENTS}
+    - emulator -avd ${EMULATOR_AVD} -no-audio -no-window:
+        background: true
+    - circle-android wait-for-boot
   override:
-    - case ${CIRCLE_NODE_INDEX} in 0) ./gradlew check ${GRADLE_ARGUMENTS} ;; 1) emulator -avd ${EMULATOR_AVD} -no-audio -no-window & circle-android wait-for-boot; ./gradlew connectedCheck ${GRADLE_ARGUMENTS} ;; esac:
-        parallel: true
+    - ./gradlew clean assemble check connectedCheck ${GRADLE_ARGUMENTS}
   post:
     - find . -type f -regex ".*/build/outputs/.*xml\|.*/build/test-results/.*xml" -exec cp {} ${CIRCLE_TEST_REPORTS} \;
