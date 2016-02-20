@@ -23,6 +23,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 final class Utils {
 
+  /**
+   * The number of times public methods of this class have been called.
+   */
   private static final AtomicInteger NUMBER_OF_CALLS = new AtomicInteger();
 
   private Utils() {
