@@ -1,0 +1,27 @@
+machine:
+  environment:
+    ANDROID_BUILD_TOOLS_VERSION: 23.0.2
+    ANDROID_SDK_VERSION: 23
+    EMULATOR_AVD: circleci-android21
+  java:
+    version: oraclejdk8
+
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter tools
+    - echo y | android update sdk --no-ui --all --filter platform-tools
+    - echo y | android update sdk --no-ui --all --filter build-tools-${ANDROID_BUILD_TOOLS_VERSION}
+    - echo y | android update sdk --no-ui --all --filter android-${ANDROID_SDK_VERSION}
+    - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
+
+test:
+  pre:
+    - emulator -avd ${EMULATOR_AVD} -no-audio -no-window:
+        background: true
+        parallel: true
+    - circle-android wait-for-boot
+  override:
+    - ./gradlew assemble check connectedCheck
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/build/test-results/.*xml\|.*/build/outputs/androidTest-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
