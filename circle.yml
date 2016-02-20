@@ -22,4 +22,4 @@ test:
     - ./gradlew clean assemble check connectedCheck ${GRADLE_ARGUMENTS}
   post:
     - find . -type f -regex ".*/build/outputs/.*xml\|.*/build/test-results/.*xml" -exec cp {} ${CIRCLE_TEST_REPORTS} \;
-    - find . -type d -regex "./.*/build/outputs" -exec cp {} ${CIRCLE_ARTIFACTS} \;
+    - find . -type d -regex "./.*/build/outputs" -exec cp -r {} ${CIRCLE_ARTIFACTS} \;
