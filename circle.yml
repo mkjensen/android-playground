@@ -9,10 +9,7 @@ machine:
 dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter tools
-    - echo y | android update sdk --no-ui --all --filter platform-tools
-    - echo y | android update sdk --no-ui --all --filter build-tools-${ANDROID_BUILD_TOOLS_VERSION}
-    - echo y | android update sdk --no-ui --all --filter android-${ANDROID_SDK_VERSION}
-    - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
+    - echo y | android update sdk --no-ui --all --filter platform-tools,build-tools-${ANDROID_BUILD_TOOLS_VERSION},android-${ANDROID_SDK_VERSION},extra-android-m2repository
 
 test:
   pre:
