@@ -19,4 +19,4 @@ test:
     - case ${CIRCLE_NODE_INDEX} in 0) ./gradlew check ;; 1) emulator -avd ${EMULATOR_AVD} -no-audio -no-window & circle-android wait-for-boot; ./gradlew connectedCheck ;; esac:
         parallel: true
   post:
-    - find . -type f -regex ".*/build/test-results/.*xml\|.*/build/outputs/androidTest-results/.*xml" -exec cp {} ${CIRCLE_TEST_REPORTS} \;
+    - find . -type f -regex ".*/build/outputs/.*xml\|.*/build/test-results/.*xml" -exec cp {} ${CIRCLE_TEST_REPORTS} \;
