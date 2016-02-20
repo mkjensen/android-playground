@@ -16,10 +16,14 @@
 
 package com.github.mkjensen.androidplayground;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * For code coverage testing purposes.
  */
-public final class Utils {
+final class Utils {
+
+  private static final AtomicInteger NUMBER_OF_CALLS = new AtomicInteger();
 
   private Utils() {
   }
@@ -28,20 +32,24 @@ public final class Utils {
    * For code coverage testing purposes.
    */
   public static void shouldBeCalledByLocalUnitTest() {
-    // For code coverage testing purposes.
+    updateCalls();
   }
 
   /**
    * For code coverage testing purposes.
    */
   public static void shouldBeCalledByAndroidTest() {
-    // For code coverage testing purposes.
+    updateCalls();
   }
 
   /**
    * For code coverage testing purposes.
    */
   public static void shouldNotBeCalled() {
-    // For code coverage testing purposes.
+    updateCalls();
+  }
+
+  private static void updateCalls() {
+    NUMBER_OF_CALLS.addAndGet(1);
   }
 }
