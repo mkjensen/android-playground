@@ -4,10 +4,10 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-public class LocalUtilsTest {
+public class UtilsTest {
 
   @Test
-  public void test_shouldBeCalledByLocalUnitTest() {
+  public void shouldBeCalledByLocalUnitTest() {
     Utils.shouldBeCalledByLocalUnitTest();
     Assert.assertEquals(42, 42);
   }

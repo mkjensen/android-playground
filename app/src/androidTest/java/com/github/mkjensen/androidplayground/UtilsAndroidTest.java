@@ -10,10 +10,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 @SmallTest
-public class AndroidUtilsTest {
+public class UtilsAndroidTest {
 
   @Test
-  public void test_shouldBeCalledByAndroidTest() {
+  public void shouldBeCalledByAndroidTest() {
     Utils.shouldBeCalledByAndroidTest();
     Assert.assertEquals(42, 42);
   }
