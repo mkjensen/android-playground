@@ -23,7 +23,6 @@ android:
     - sys-img-${EMULATOR_ANDROID_ABI}-android-tv-${EMULATOR_ANDROID_SDK_VERSION}
 
 before_install:
-  - pip install --user codecov
   - curl -sL http://bit.ly/jpm4j > jpm4j.jar
   - java -jar jpm4j.jar --home ${JPM_HOME} --bindir ${JPM_BIN} init
   - ${JPM_BIN}/jpm install com.codacy:codacy-coverage-reporter:assembly
@@ -38,9 +37,7 @@ script:
    - ./gradlew assemble check connectedCheck
 
 after_success:
-  - codecov
   - ${JPM_BIN}/codacy-coverage-reporter --projectToken ${CODACY_PROJECT_TOKEN} --language Java --coverageReport app/build/reports/coverage/debug/report.xml
-  - ./gradlew coveralls
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
