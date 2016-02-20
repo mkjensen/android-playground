@@ -5,7 +5,7 @@ sudo: false
 jdk:
   - oraclejdk8
 
-env
+env:
   - JPM_HOME=${HOME}/jpm
   - JPM_BIN=${JPM_HOME}/bin
 
