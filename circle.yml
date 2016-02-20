@@ -3,6 +3,7 @@ machine:
     ANDROID_BUILD_TOOLS_VERSION: 23.0.2
     ANDROID_SDK_VERSION: 23
     EMULATOR_AVD: circleci-android21
+    TERM: dumb
   java:
     version: oraclejdk8
 
