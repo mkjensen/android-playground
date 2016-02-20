@@ -18,35 +18,35 @@ apply plugin: 'com.android.application'
 apply plugin: 'jacoco-everywhere'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+  compileSdkVersion 23
+  buildToolsVersion "23.0.2"
 
-    defaultConfig {
-        applicationId "com.github.mkjensen.androidplayground"
-        minSdkVersion 21
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+  defaultConfig {
+    applicationId "com.github.mkjensen.androidplayground"
+    minSdkVersion 21
+    targetSdkVersion 23
+    versionCode 1
+    versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
 
-        debug {
-            testCoverageEnabled true
-        }
+    debug {
+      testCoverageEnabled true
     }
+  }
 }
 
 dependencies {
-    compile 'com.android.support:leanback-v17:23.1.1'
+  compile 'com.android.support:leanback-v17:23.1.1'
 
-    testCompile 'junit:junit:4.12'
+  testCompile 'junit:junit:4.12'
 
-    androidTestCompile 'com.android.support:support-annotations:23.1.1'
-    androidTestCompile 'com.android.support.test:runner:0.4.1'
+  androidTestCompile 'com.android.support:support-annotations:23.1.1'
+  androidTestCompile 'com.android.support.test:runner:0.4.1'
 }
