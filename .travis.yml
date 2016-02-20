@@ -1,8 +1,5 @@
 language: android
 
-jdk:
-  - oraclejdk8
-
 env:
   global:
     - ANDROID_SDK_VERSION=23
@@ -22,10 +19,8 @@ android:
     - extra-android-m2repository
     - sys-img-${EMULATOR_ANDROID_ABI}-android-tv-${EMULATOR_ANDROID_SDK_VERSION}
 
-before_install:
-  - curl -sL http://bit.ly/jpm4j > jpm4j.jar
-  - java -jar jpm4j.jar --home ${JPM_HOME} --bindir ${JPM_BIN} init
-  - ${JPM_BIN}/jpm install com.codacy:codacy-coverage-reporter:assembly
+jdk:
+  - oraclejdk8
 
 before_script:
   - echo no | android create avd --force -n test -t android-${EMULATOR_ANDROID_SDK_VERSION} --abi ${EMULATOR_ANDROID_TARGET}/${EMULATOR_ANDROID_ABI}
@@ -37,6 +32,9 @@ script:
    - ./gradlew assemble check connectedCheck
 
 after_success:
+  - curl -sL http://bit.ly/jpm4j > jpm4j.jar
+  - java -jar jpm4j.jar --home ${JPM_HOME} --bindir ${JPM_BIN} init
+  - ${JPM_BIN}/jpm install com.codacy:codacy-coverage-reporter:assembly
   - ${JPM_BIN}/codacy-coverage-reporter --projectToken ${CODACY_PROJECT_TOKEN} --language Java --coverageReport app/build/reports/coverage/debug/report.xml
 
 before_cache:
