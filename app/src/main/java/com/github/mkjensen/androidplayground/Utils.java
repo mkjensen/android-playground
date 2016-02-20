@@ -1,6 +1,6 @@
 package com.github.mkjensen.androidplayground;
 
-public class Utils {
+public final class Utils {
 
   private Utils() {
   }
