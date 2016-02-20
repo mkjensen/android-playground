@@ -49,6 +49,7 @@ subprojects {
 
 subprojects {project ->
   apply plugin: 'checkstyle'
+  apply plugin: 'findbugs'
 
   checkstyle {
     toolVersion = '6.15'
@@ -64,9 +65,29 @@ subprojects {project ->
     classpath = files()
   }
 
+  findbugs {
+    effort = 'max'
+    excludeFilter = rootProject.file('config/findbugs/exclude.xml')
+    ignoreFailures = false
+    reportLevel = 'low'
+    reportsDir = project.file('build/reports/findbugs')
+    toolVersion '3.0.1'
+  }
+
+  task findbugs(type: FindBugs) {
+    classes = files("${project.buildDir}/intermediates/classes")
+    classpath = files()
+    reports {
+      html.enabled = true
+      xml.enabled = false
+    }
+    source = 'src'
+  }
+
   afterEvaluate {
     if (project.tasks.findByName('check')) {
       check.dependsOn('checkstyle')
+      check.dependsOn('findbugs')
     }
   }
 }
