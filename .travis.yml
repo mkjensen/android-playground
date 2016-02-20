@@ -7,7 +7,7 @@ env:
     - EMULATOR_ANDROID_ABI=armeabi-v7a
     - EMULATOR_ANDROID_SDK_VERSION=21
     - EMULATOR_ANDROID_TARGET=android-tv
-    - JPM_BIN=${JPM_HOME}/bin
+    - JPM_BIN=${HOME}/jpm/bin
     - JPM_HOME=${HOME}/jpm
 
 android:
