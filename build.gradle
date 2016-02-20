@@ -50,6 +50,7 @@ subprojects {
 subprojects {project ->
   apply plugin: 'checkstyle'
   apply plugin: 'findbugs'
+  apply plugin: 'pmd'
 
   checkstyle {
     toolVersion = '6.15'
@@ -84,10 +85,26 @@ subprojects {project ->
     source = 'src'
   }
 
+  pmd {
+    consoleOutput true
+    ignoreFailures false
+    reportsDir = project.file('build/reports/pmd')
+    toolVersion '5.4.1'
+  }
+
+  task pmd(type: Pmd) {
+    include '**/*.java'
+    ruleSetFiles = files("${project.rootDir}/config/pmd/ruleset.xml")
+    reports {
+      xml.enabled = false
+      html.enabled = true
+    }
+    source 'src'
+  }
+
   afterEvaluate {
     if (project.tasks.findByName('check')) {
-      check.dependsOn('checkstyle')
-      check.dependsOn('findbugs')
+      check.dependsOn 'checkstyle', 'findbugs', 'pmd'
     }
   }
 }

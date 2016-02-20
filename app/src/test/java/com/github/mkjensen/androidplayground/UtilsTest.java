@@ -20,8 +20,14 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+/**
+ * For code coverage testing purposes.
+ */
 public class UtilsTest {
 
+  /**
+   * For code coverage testing purposes.
+   */
   @Test
   public void shouldBeCalledByLocalUnitTest() {
     Utils.shouldBeCalledByLocalUnitTest();

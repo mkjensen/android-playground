@@ -24,10 +24,16 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+/**
+ * For code coverage testing purposes.
+ */
 @RunWith(AndroidJUnit4.class)
 @SmallTest
 public class UtilsAndroidTest {
 
+  /**
+   * For code coverage testing purposes.
+   */
   @Test
   public void shouldBeCalledByAndroidTest() {
     Utils.shouldBeCalledByAndroidTest();

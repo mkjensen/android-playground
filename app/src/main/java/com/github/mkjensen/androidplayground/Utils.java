@@ -16,20 +16,32 @@
 
 package com.github.mkjensen.androidplayground;
 
+/**
+ * For code coverage testing purposes.
+ */
 public final class Utils {
 
   private Utils() {
   }
 
+  /**
+   * For code coverage testing purposes.
+   */
   public static void shouldBeCalledByLocalUnitTest() {
-    System.out.println("shouldBeCalledByLocalUnitTest");
+    // For code coverage testing purposes.
   }
 
+  /**
+   * For code coverage testing purposes.
+   */
   public static void shouldBeCalledByAndroidTest() {
-    System.out.println("shouldBeCalledByAndroidTest");
+    // For code coverage testing purposes.
   }
 
+  /**
+   * For code coverage testing purposes.
+   */
   public static void shouldNotBeCalled() {
-    System.out.println("shouldNotBeCalled");
+    // For code coverage testing purposes.
   }
 }
