@@ -40,6 +40,7 @@ script:
 after_success:
   - codecov
   - ${JPM_BIN}/codacy-coverage-reporter --projectToken ${CODACY_PROJECT_TOKEN} --language Java --coverageReport app/build/reports/coverage/debug/report.xml
+  - ./gradlew coveralls
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock

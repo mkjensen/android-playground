@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco-everywhere'
+apply plugin: 'com.github.kt3k.coveralls'
 
 android {
     compileSdkVersion 23
