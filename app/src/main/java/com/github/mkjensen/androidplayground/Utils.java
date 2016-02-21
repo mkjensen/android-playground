@@ -34,7 +34,7 @@ final class Utils {
   /**
    * For code coverage testing purposes.
    */
-  public static void shouldBeCalledByLocalUnitTest() {
+  public static void shouldBeCalledByTest() {
     updateCalls();
   }
 

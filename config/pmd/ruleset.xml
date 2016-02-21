@@ -22,6 +22,8 @@
 
     <rule ref="rulesets/internal/all-java.xml">
         <exclude name="AtLeastOneConstructor" />
+        <exclude name="DataflowAnomalyAnalysis" />
+        <exclude name="LawOfDemeter" />
     </rule>
 
     <rule ref="rulesets/java/comments.xml/CommentSize">

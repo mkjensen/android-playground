@@ -16,7 +16,7 @@
 
 package com.github.mkjensen.androidplayground;
 
-import junit.framework.Assert;
+import static junit.framework.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -29,8 +29,17 @@ public class UtilsTest {
    * For code coverage testing purposes.
    */
   @Test
-  public void shouldBeCalledByLocalUnitTest() {
-    Utils.shouldBeCalledByLocalUnitTest();
-    Assert.assertEquals(42, 42);
+  public void mustHavePrivateParameterlessConstructor() {
+    TestUtils.assertClassHasPrivateParameterlessConstructor(Utils.class);
+    assertEquals("The world has ended", 42, 42);
+  }
+
+  /**
+   * For code coverage testing purposes.
+   */
+  @Test
+  public void shouldBeCalledByTest() {
+    Utils.shouldBeCalledByTest();
+    assertEquals("The world has ended", 42, 42);
   }
 }
