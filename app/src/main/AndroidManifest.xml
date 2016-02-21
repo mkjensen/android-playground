@@ -18,12 +18,15 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.github.mkjensen.androidplayground"
-    tools:ignore="MissingLeanbackLauncher">
+    package="com.github.mkjensen.androidplayground">
 
     <uses-feature
         android:name="android.software.leanback"
         android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
 
     <application
         android:allowBackup="false"
@@ -31,7 +34,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Leanback"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning,MissingTvBanner">
+
+        <activity
+            android:name=".dml.ondemand.OnDemandActivity"
+            android:label="@string/app_dml_name"
+            android:theme="@style/Theme.Leanback.Browse">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

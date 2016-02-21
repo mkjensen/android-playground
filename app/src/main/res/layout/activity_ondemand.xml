@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ Copyright 2016 Martin Kamp Jensen
   ~
@@ -16,7 +14,10 @@
   ~ limitations under the License.
   -->
 
-<resources>
-    <string name="app_name">Android Playground</string>
-    <string name="app_dml_name">Danish Media License</string>
-</resources>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ondemand_fragment"
+    android:name="com.github.mkjensen.androidplayground.dml.ondemand.OnDemandFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout="@layout/lb_browse_fragment" />
