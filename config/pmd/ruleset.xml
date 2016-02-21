@@ -26,6 +26,7 @@
         <exclude name="AtLeastOneConstructor" />
         <exclude name="DataflowAnomalyAnalysis" />
         <exclude name="LawOfDemeter" />
+        <exclude name="LoosePackageCoupling" />
     </rule>
 
     <rule ref="rulesets/java/comments.xml/CommentRequired">
