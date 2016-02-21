@@ -16,9 +16,11 @@
   ~ limitations under the License.
   -->
 
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PMD"
     xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
     xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description>PMD</description>
 
     <rule ref="rulesets/internal/all-java.xml">
         <exclude name="AtLeastOneConstructor" />
