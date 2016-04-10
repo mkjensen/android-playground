@@ -23,7 +23,7 @@ android {
 
   defaultConfig {
     applicationId "com.github.mkjensen.androidplayground"
-    minSdkVersion 21
+    minSdkVersion 23
     targetSdkVersion 23
     versionCode 1
     versionName "1.0"
@@ -39,6 +39,10 @@ android {
     debug {
       testCoverageEnabled true
     }
+  }
+
+  adbOptions {
+    timeOutInMs 10 * 60 * 1000
   }
 }
 
