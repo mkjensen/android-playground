@@ -2,12 +2,12 @@ language: android
 
 env:
   global:
-    - ADB_INSTALL_TIMEOUT=20 # minutes
     - ANDROID_BUILD_TOOLS_VERSION=23.0.3
     - ANDROID_SDK_VERSION=23
     - EMULATOR_ANDROID_ABI=armeabi-v7a
     - EMULATOR_ANDROID_SDK_VERSION=23
     - EMULATOR_ANDROID_TARGET=android-tv
+    - ADB_INSTALL_TIMEOUT=20 # minutes (2 minutes by default)
     - JPM_BIN=${HOME}/jpm/bin
     - JPM_HOME=${HOME}/jpm
 
@@ -31,7 +31,7 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
-   - travis_wait 20 ./gradlew clean assemble check connectedCheck -PdisablePreDex
+  - travis_wait 20 ./gradlew clean assemble check connectedCheck -PdisablePreDex
 
 after_success:
   - curl -sL http://bit.ly/jpm4j > jpm4j.jar
