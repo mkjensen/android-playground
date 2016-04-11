@@ -43,7 +43,7 @@ android {
 
   adbOptions {
     timeOutInMs 8 * 60 * 1000
-    installOptions "-d","-t" // Note: No space between
+    installOptions "-d","-t"
   }
 }
 
