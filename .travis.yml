@@ -1,5 +1,7 @@
 language: android
 
+sudo: false
+
 env:
   global:
     - ANDROID_BUILD_TOOLS_VERSION=23.0.3
@@ -18,7 +20,7 @@ android:
     - build-tools-${ANDROID_BUILD_TOOLS_VERSION}
     - android-${ANDROID_SDK_VERSION}
     - extra-android-m2repository
-    - sys-img-${EMULATOR_ANDROID_ABI}-android-tv-${EMULATOR_ANDROID_SDK_VERSION}
+    - sys-img-${EMULATOR_ANDROID_ABI}-${EMULATOR_ANDROID_TARGET}-${EMULATOR_ANDROID_SDK_VERSION}
 
 jdk:
   - oraclejdk8
