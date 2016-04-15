@@ -27,8 +27,6 @@ before_script:
   - echo no | android create avd --force -n test -t android-${EMULATOR_ANDROID_SDK_VERSION} --abi ${EMULATOR_ANDROID_TARGET}/${EMULATOR_ANDROID_ABI}
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
-  - sleep 20
-  - adb shell input keyevent 82 &
 
 script:
   - travis_wait 20 ./gradlew clean assemble check connectedCheck -PdisablePreDex
